@@ -1,0 +1,126 @@
+/* Start <Global Variables> */
+:root {
+    --gradient: 263.24deg, #FFFFFF 21.05%, #A79697 24.13%, #300A0B 77.63%;
+    --main-text-color: #000000;
+    --sub-text-color: rgba(0, 0, 0, 0.5);
+    --main-background: url("../image/background/lightBg.svg");
+    --font-size-base: 16px;
+    --form: bg:
+}
+
+:root.DARK {
+    --gradient: 262.61deg, #FFFFFF 20.7%, #BAADAE 56.69%, #988485 77.51%, #300A0B 77.51%;
+    --main-text-color: #FFFFFF;
+    --sub-text-color: rgba(255, 255, 255, 0.5);
+    --main-background: url("../image/background/darkBg.svg");
+}
+
+:root:lang(en) body {
+    font-family: "Poppins", sans-serif;
+    font-size: var(--font-size-base);
+}
+
+:root:lang(ar) body {
+    font-family: "El Messiri", serif;
+    font-size: var(--font-size-base);
+}
+
+/* Smooth theme transitions */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* End <Global Variables> */
+
+
+/* Start <Home> */
+.home {
+    height: 100vh;
+    width: 100%;
+    background-image: var(--main-background);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Fallback background color */
+    background-color: #f4f4f4;
+}
+
+/* End </Home> */
+
+
+/* Start <Content> */
+.content .logo {
+    font-weight: 600;
+    font-size: 3.75rem;
+    line-height: 100%;
+    letter-spacing: 4px;
+    background: linear-gradient(var(--gradient));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    fill: transparent;
+    animation: show 4s alternate infinite;
+}
+
+.content p,
+.content ul li {
+    color: var(--main-text-color);
+    line-height: 1.7;
+}
+
+@keyframes show {
+    0% {
+        background: linear-gradient(var(--gradient));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        fill: transparent;
+    }
+
+    33% {
+        background: linear-gradient(0deg, #FFD9D9 0, #C2B1B1 5%, #5A2C2D 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        fill: transparent;
+    }
+
+    66% {
+        background: linear-gradient(-263.24deg, #FF9999 0, #A79697 5%, #300A0B 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        fill: transparent;
+    }
+
+    100% {
+        background: linear-gradient(var(--gradient));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        fill: transparent;
+    }
+}
+
+/* End </Content> */
+
+/* Start </Form> */
+.message-form {
+    height: 305px;
+    background-color: #d9d9d995;
+    border-radius: 15px;
+}
+
+:root.DARK .message-form {
+    box-shadow: 0 0 30px 10px inset #80808047;
+    background-color: #d9d9d900
+}
+
+/* End </Form> */
+
+/* Group 1000005616 */
+

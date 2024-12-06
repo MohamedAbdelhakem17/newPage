@@ -1,0 +1,38 @@
+{
+  "content": {
+    "statement1": "Get ready for the big surprise! Our new website is launching soon, and we will reveal our amazing new headquarters, with incredible prices and exclusive discounts.",
+    "statement2": "Register your details now and specify the programming service you need to get a special discount.Don't miss the opportunity!",
+    "ul": {
+      "li1": "Continuous technical support",
+      "li2": "Accurate delivery with high quality.",
+      "li3": "Innovative solutions with professionalism."
+    }
+  },
+  "think": {
+    "word1": "THINK BIG",
+    "word2": "WE DO"
+  },
+
+  "form": {
+    "name": {
+      "label": "Full Name",
+      "placeholder": "Enter your name here"
+    },
+
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email here"
+    },
+
+    "phon": {
+      "label": "Phone Number",
+      "placeholder": "Enter your number "
+    },
+    "type": {
+      "label": "Type Service",
+      "items": ["Website", "Application"]
+    },
+    
+    "Submit": "Submit"
+  }
+}
