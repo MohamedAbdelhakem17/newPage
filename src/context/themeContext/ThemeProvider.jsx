@@ -4,8 +4,11 @@ import PropTypes from "prop-types";
 import { Mode } from "../../config/SystemVariable";
 
 const ThemeProvider = ({ children }) => {
-    const [mode, setMode] = useState(null);
-    const isDark = useRef(false);
+    const initialMode =
+        localStorage.getItem("mode") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? Mode.DARK : Mode.LIGHT);
+    const [mode, setMode] = useState(initialMode);
+    const isDark = useRef(initialMode === Mode.DARK);
 
     // Save mode to localStorage
     const saveUserData = (mode) => {
@@ -19,26 +22,12 @@ const ThemeProvider = ({ children }) => {
         isDark.current = newMode === Mode.DARK;
     };
 
-    // Initialize theme mode
+    // Sync DOM class and `isDark` whenever mode changes
     useEffect(() => {
-        const userSelect = localStorage.getItem("mode");
-        if (userSelect) {
-            setMode(userSelect);
-            isDark.current = userSelect === Mode.DARK;
-        } else {
-            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            setMode(systemPrefersDark ? Mode.DARK : Mode.LIGHT);
-        }
-    }, []);
-
-    // Update DOM and `isDark` reference when mode changes
-    useEffect(() => {
-        if (mode) {
-            const root = document.documentElement;
-            root.classList.remove(Mode.DARK, Mode.LIGHT);
-            root.classList.add(mode);
-            isDark.current = mode === Mode.DARK;
-        }
+        const root = document.documentElement;
+        root.classList.remove(Mode.DARK, Mode.LIGHT);
+        root.classList.add(mode);
+        isDark.current = mode === Mode.DARK;
     }, [mode]);
 
     return (

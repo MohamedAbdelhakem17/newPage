@@ -25,10 +25,10 @@ const LocalizationsProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        // Load User Option on component mount
         const currentLanguage = localStorage.getItem("language") || Language.EN;
-        setLanguage(currentLanguage);
-    }, []) // Empty dependency array ensures it runs only once after initial render
+        changeLanguage(currentLanguage);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return <localizationsContext.Provider value={{ changeLanguage, isEnglish: isEnglish.current, language }}>
         {children}

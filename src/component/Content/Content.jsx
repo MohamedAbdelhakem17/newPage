@@ -9,8 +9,8 @@ const Content = () => {
     const setContent = useLocalization("content")
     const { isEnglish } = useLocalizationContext()
     const { isDark } = useTheme()
-    return <div className="col-lg-7  col-12 content">
-        <h2 className="logo mb-5">CODECRAFT </h2>
+    return <div className="col-md-6  col-12 content py-2">
+        <h2 className="title mb-5">CODECRAFT </h2>
 
         <p className="py-1">{setContent("statement1")}</p>
         <p className="py-1">{setContent("statement2")}</p>

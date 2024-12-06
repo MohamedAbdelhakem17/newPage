@@ -1,15 +1,21 @@
 /* Start <Global Variables> */
 :root {
     --gradient: 263.24deg, #FFFFFF 21.05%, #A79697 24.13%, #300A0B 77.63%;
+    --btn-gradient: 81.88deg, rgba(48, 10, 11, 0.7) 6.25%, #FFFFFF 248.18%;
+    --btn-gradient-reverse: 261.88deg, #FFFFFF 6.25%, rgba(48, 10, 11, 0.7) 248.18%;
     --main-text-color: #000000;
     --sub-text-color: rgba(0, 0, 0, 0.5);
     --main-background: url("../image/background/lightBg.svg");
     --font-size-base: 16px;
-    --form: bg:
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
+
+
 
 :root.DARK {
     --gradient: 262.61deg, #FFFFFF 20.7%, #BAADAE 56.69%, #988485 77.51%, #300A0B 77.51%;
+    --btn-gradient: 81.88deg, rgba(48, 10, 11, 0.7) 6.25%, #FFFFFF 248.18%;
+    --btn-gradient-reverse: 261.88deg, #FFFFFF 6.25%, rgba(48, 10, 11, 0.7) 248.18%;
     --main-text-color: #FFFFFF;
     --sub-text-color: rgba(255, 255, 255, 0.5);
     --main-background: url("../image/background/darkBg.svg");
@@ -39,7 +45,7 @@ ul {
 
 /* Start <Home> */
 .home {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-image: var(--main-background);
     background-position: top center;
@@ -53,7 +59,7 @@ ul {
 
 
 /* Start <Content> */
-.content .logo {
+.title {
     font-weight: 600;
     font-size: 3.75rem;
     line-height: 100%;
@@ -64,6 +70,11 @@ ul {
     background-clip: text;
     fill: transparent;
     animation: show 4s alternate infinite;
+}
+
+.content .title {
+    font-family: "Poppins", sans-serif;
+    text-align: start;
 }
 
 .content p,
@@ -110,9 +121,12 @@ ul {
 
 /* Start </Form> */
 .message-form {
-    height: 305px;
-    background-color: #d9d9d995;
+    background-color: #d9d9d936;
+    backdrop-filter: blur(15px);
     border-radius: 15px;
+    min-height: 450px;
+    position: relative;
+    z-index: 122;
 }
 
 :root.DARK .message-form {
@@ -120,7 +134,267 @@ ul {
     background-color: #d9d9d900
 }
 
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #a0646738;
+    bottom: -40px;
+    right: -25px;
+    z-index: 13;
+}
+
+:root:lang(en) .circle {
+    left: -25px !important;
+}
+
+.message-form .input-container {
+    border: 1px solid var(--sub-text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.message-form label {
+    color: var(--main-text-color);
+    font-size: 17px;
+    padding: 5px 0;
+}
+
+.message-form h6 {
+    color: var(--main-text-color);
+    padding: 10px 0;
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.message-form .input-container i {
+    padding: 0px 10px;
+    font-size: 20px;
+    color: var(--sub-text-color);
+}
+
+.message-form .form-input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 5px;
+    color: var(--main-text-color);
+}
+
+.message-form .btn-form {
+    color: white;
+    background: linear-gradient(var(--btn-gradient));
+    border: 0;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    width: 100%;
+    transition: all 500ms ease-in-out;
+}
+
+.message-form .btn-form:hover {
+    color: #3E2C2D;
+    background: linear-gradient(var(--btn-gradient-reverse));
+}
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    border: none;
+    -webkit-text-fill-color: var(--main-text-color);
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 /* End </Form> */
 
-/* Group 1000005616 */
+.footer.title {
+    letter-spacing: 0
+}
 
+
+/* Start </Spinner> */
+
+.content-spinner {
+    width: 70px;
+    height: 70px;
+    perspective: 300px;
+    animation: spin-all 4s ease-in-out 0s infinite;
+    position: absolute;
+    z-index: 1;
+}
+
+.cube {
+    background: var(--main-text-color);
+    width: 35px;
+    height: 35px;
+    border-radius: 3px;
+    transform: rotate(48deg) rotateX(22.5deg) rotateY(-22.5deg);
+    position: absolute;
+    left: 17px;
+    top: 6px;
+    transition: all 1s ease 0s;
+    box-shadow: 0px 5px 40px var(--shadow-color);
+    opacity: .4;
+    /* 3D effect */
+}
+
+.cube,
+.cube:before,
+.cube:after {
+    animation: spin-cube 2s ease-in-out -3s infinite alternate;
+}
+
+.cube:before,
+.cube:after {
+    position: absolute;
+    content: "";
+    background: var(--main-text-color);
+    opacity: .4;
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    border-radius: 3px;
+    transform-origin: right bottom;
+    transition: all 1s ease 0s;
+    box-shadow: 0px 5px 40px var(--shadow-color);
+    /* 3D effect */
+}
+
+.cube:before {
+    transform: rotateY(-90deg);
+    top: 3.5px;
+    left: 5px;
+    animation-name: spin-cube-before;
+}
+
+.cube:after {
+    transform: rotateX(90deg);
+    top: 5px;
+    left: 3.5px;
+    animation-name: spin-cube-after;
+}
+
+@keyframes spin-all {
+
+    50%,
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes spin-cube {
+
+    0%,
+    50% {
+        border-radius: 50%;
+        transform: rotate(39deg) rotateX(0deg) rotateY(0deg);
+        left: 20px;
+        top: 12.5px;
+        width: 12.5px;
+        height: 12.5px;
+    }
+
+    50%,
+    100% {
+        border-radius: 3px;
+        transform: rotate(48deg) rotateX(22.5deg) rotateY(-22.5deg);
+        left: 17px;
+        top: 6px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@keyframes spin-cube-before {
+
+    0%,
+    50% {
+        border-radius: 50%;
+        transform: rotateY(-180deg) rotateX(0deg);
+        left: 13.5px;
+        top: 11.5px;
+        width: 100%;
+        height: 100%;
+    }
+
+    50%,
+    100% {
+        border-radius: 3px;
+        transform: rotateY(-90deg);
+        left: 5px;
+        top: 3.5px;
+        width: calc(100% - 3px);
+        height: calc(100% - 3px);
+    }
+}
+
+@keyframes spin-cube-after {
+
+    0%,
+    50% {
+        border-radius: 50%;
+        transform: rotateY(0deg) rotateX(180deg);
+        left: 6.5px;
+        top: 15px;
+        width: 100%;
+        height: 100%;
+    }
+
+    50%,
+    100% {
+        border-radius: 3px;
+        transform: rotateX(90deg);
+        left: 3.5px;
+        top: 5px;
+        width: calc(100% - 3px);
+        height: calc(100% - 3px);
+    }
+}
+
+/* Start </Spinner> */
+
+
+/* Start </Responsive> */
+@media (max-width:600px) {
+    .home {
+        padding: 10px !important;
+    }
+
+    .container-fluid {
+        padding: 10px !important;
+    }
+
+    .user-options {
+        margin-bottom: 1rem;
+    }
+
+    .content .title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .content ul {
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .footer.title {
+        padding: 10px;
+        font-size: 3rem;
+    }
+
+    .circle {
+        bottom: -25px;
+        width: 70px;
+        height: 70px;
+        right: -5px;
+    }
+
+    :root:lang(en) .circle {
+        left: -5px !important;
+    }
+}
+
+/* End </Responsive> */
