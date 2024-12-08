@@ -33,6 +33,15 @@
       "items": ["Website", "Application"]
     },
 
-    "Submit": "Submit"
+    "Submit": "Submit",
+
+    "validation": {
+      "noNumbers": "The username must not contain numbers.",
+      "required": "This field is required. Please make sure to fill it in.",
+      "service": "You must select the type of service you need.",
+      "requiredName": "The name field is required. Please enter your full name.",
+      "invalidEmail": "The email address you entered is invalid. Please provide a correct email format (e.g., name@example.com).",
+      "invalidPhone": "The phone number must contain digits only. Please enter a valid number without spaces or special characters."
+    }
   }
 }

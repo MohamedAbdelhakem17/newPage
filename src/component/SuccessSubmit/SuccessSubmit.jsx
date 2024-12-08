@@ -519,7 +519,7 @@ const ThreeScene = () => {
 
     return (
         <>
-            <div className="overflow-hidden w-100  d-flex align-items-center justify-content-center vh-100">
+            <div className="overflow-hidden w-100  d-flex align-items-center justify-content-center vh-100 position-fixed top-0 start-0 end-0 bottom-0" style={{ zIndex: "20000" }} >
                 <canvas ref={canvasRef} id="webgl" className="webgl"></canvas>
                 <div ref={mouseEffectRef} className="mouse-effect">
                     <div className="circle"></div>

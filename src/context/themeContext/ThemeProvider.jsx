@@ -7,6 +7,7 @@ const ThemeProvider = ({ children }) => {
     const initialMode =
         localStorage.getItem("mode") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? Mode.DARK : Mode.LIGHT);
+        
     const [mode, setMode] = useState(initialMode);
     const isDark = useRef(initialMode === Mode.DARK);
 
