@@ -1,18 +1,18 @@
-import { useNavigate } from "react-router-dom"
+/* eslint-disable react/prop-types */
 import useLocalizationContext from "../../context/localizationContext/localizationContext"
 import useLocalization from "../../hooks/useTranslation"
 import Input from "../Shared/Input"
 
 
-const Form = () => {
+const Form = ({submit}) => {
     const setContent = useLocalization("form")
     const { isEnglish } = useLocalizationContext()
-    const navigateTo = useNavigate()
 
     const handelSubmit = (event) => {
         event.preventDefault()
-        navigateTo("/success")
+        submit(true)
     }
+
     return (
         <div className="col-md-5 col-12 position-relative">
             <form className={`w-100 ${isEnglish ? "ms-auto" : "me-auto"} message-form p-3`} onSubmit={handelSubmit}>

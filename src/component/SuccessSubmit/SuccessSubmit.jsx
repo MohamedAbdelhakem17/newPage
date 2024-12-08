@@ -246,8 +246,8 @@ const ThreeScene = () => {
         ];
 
         const material = new THREE.MeshLambertMaterial({
-            color: "#A68B8B", // Updated color
-            emissive: "#A68B8B", // Existing emissive color
+            color: "##ff79b0",
+            emissive: "red"
         });
 
 
@@ -519,7 +519,7 @@ const ThreeScene = () => {
 
     return (
         <>
-            <div className="overflow-hidden w-100  vh-100" style={{background:"#241B1C"}}>
+            <div className="overflow-hidden w-100  d-flex align-items-center justify-content-center vh-100">
                 <canvas ref={canvasRef} id="webgl" className="webgl"></canvas>
                 <div ref={mouseEffectRef} className="mouse-effect">
                     <div className="circle"></div>
